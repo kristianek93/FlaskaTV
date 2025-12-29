@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flaska</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="logo">Flaška</div>
+      <div class="status" id="status">MENU</div>
+    </header>
+
+    <main>
+      <section id="screen-menu" class="screen active">
+        <h1>Party hra „Flaška“</h1>
+        <div class="menu-grid">
+          <button class="btn focusable" data-action="start">Start</button>
+          <button class="btn focusable" data-action="settings">Nastavení</button>
+          <button class="btn focusable" data-action="history">Historie</button>
+        </div>
+      </section>
+
+      <section id="screen-setup" class="screen">
+        <h2>Počet hráčů</h2>
+        <div class="row">
+          <button class="btn small focusable" data-action="players-dec">-</button>
+          <div class="big" id="player-count">4</div>
+          <button class="btn small focusable" data-action="players-inc">+</button>
+        </div>
+        <button class="btn focusable" data-action="confirm-players">Potvrdit</button>
+      </section>
+
+      <section id="screen-players" class="screen">
+        <h2>Vyber hráče</h2>
+        <div id="players-form" class="players-form"></div>
+        <button class="btn focusable" data-action="players-done">Hotovo</button>
+      </section>
+
+      <section id="screen-game" class="screen">
+        <div class="hud">
+          <div>Obtížnost: <span id="hud-difficulty"></span></div>
+          <div>Životy: <span id="hud-lives"></span></div>
+          <div>Poslední: <span id="hud-last"></span></div>
+        </div>
+        <div id="arena" class="arena">
+          <div id="bottle" class="bottle"></div>
+          <div id="players-ring" class="players-ring"></div>
+        </div>
+        <button class="btn focusable" data-action="spin">OK – roztočit</button>
+      </section>
+
+      <section id="screen-settings" class="screen">
+        <h2>Nastavení</h2>
+        <div class="setting">
+          <label>Obtížnost</label>
+          <div class="row">
+            <button class="btn small focusable" data-action="diff-dec">-</button>
+            <div id="difficulty" class="big"></div>
+            <button class="btn small focusable" data-action="diff-inc">+</button>
+          </div>
+        </div>
+        <div class="setting">
+          <label>Životy na hráče</label>
+          <div class="row">
+            <button class="btn small focusable" data-action="lives-dec">-</button>
+            <div id="lives" class="big"></div>
+            <button class="btn small focusable" data-action="lives-inc">+</button>
+          </div>
+        </div>
+        <div class="setting">
+          <label>Typ flašky</label>
+          <div class="row">
+            <button class="btn small focusable" data-action="bottle-dec">-</button>
+            <div id="bottle-type" class="big"></div>
+            <button class="btn small focusable" data-action="bottle-inc">+</button>
+          </div>
+        </div>
+        <button class="btn focusable" data-action="settings-back">Zpět</button>
+      </section>
+
+      <section id="screen-end" class="screen">
+        <div class="end-anim" id="end-anim">
+          <div class="mushroom"></div>
+        </div>
+        <h2 id="winner-text"></h2>
+        <div class="menu-grid">
+          <button class="btn focusable" data-action="restart">Hrát znovu</button>
+          <button class="btn focusable" data-action="back-menu">Menu</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="task-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3 id="task-title"></h3>
+      <p id="task-text"></p>
+      <div class="row">
+        <button class="btn focusable" data-action="task-done">Splněno</button>
+        <button class="btn focusable" data-action="task-fail">Nesplněno</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿# API key
+config.js
+
+# Build artifacts
+.buildResult/
+.build/
+.sign/
+.package/
+*.wgt
+
+# OS junk
+Thumbs.db
